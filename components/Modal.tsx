@@ -1,7 +1,6 @@
 "use client";
 
 import React, { ReactNode, useState } from 'react';
-import { motion } from 'framer-motion';
 import { GrClose } from 'react-icons/gr';
 import { Loader2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -49,13 +48,7 @@ const Modal: React.FC<ModalProps> = ({contentClass, className, disabled, childre
               aria-hidden="true"
             ></div>
 
-            <motion.div
-              initial={{ opacity: 0, y: -50 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -50 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              
-            >
+            
               <div className={`relative bg-white dark:bg-gray-800 rounded-lg w-3xl  shadow-xl transform transition-all sm:my-8 
                  ${contentClass}
                  sm:max-w-2xl w-full
@@ -100,7 +93,6 @@ const Modal: React.FC<ModalProps> = ({contentClass, className, disabled, childre
                 </div>
               </div>
               </div>
-            </motion.div>
           </div>
         </div>
       )}
