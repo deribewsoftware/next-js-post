@@ -1,12 +1,17 @@
-"use client";
 import React, { useState, useEffect } from 'react';
 import Modal from './Modal';
 import { FaEdit } from 'react-icons/fa';
 import { useEditPostDataMutation } from '@/lib/redux/features/api/postApi';
 import { Bounce, toast } from 'react-toastify';
 
-const EditPost = ({ postData }: { postData: any }) => {
-  // Set up the mutation hook to handle the post edit
+// Define the Post interface
+interface Post {
+  id: number;
+  title: string;
+  body: string;
+}
+
+const EditPost = ({ postData }: { postData: Post }) => {
   const [onEdit, { isLoading, isSuccess, isError, data, error }] = useEditPostDataMutation();
 
   const [formData, setFormData] = useState({
@@ -37,9 +42,8 @@ const EditPost = ({ postData }: { postData: any }) => {
     }));
   };
 
-  useEffect(()=>{
-    if(isSuccess){
-      
+  useEffect(() => {
+    if (isSuccess) {
       toast.success("Post updated successfully!", {
         position: "top-right",
         autoClose: 5000,
@@ -50,13 +54,12 @@ const EditPost = ({ postData }: { postData: any }) => {
         progress: undefined,
         theme: "light",
         transition: Bounce,
-        });
+      });
     }
-  },[isSuccess]);
+  }, [isSuccess]);
 
-  useEffect(()=>{
-    if(isError){
-      
+  useEffect(() => {
+    if (isError) {
       toast.error("Failed to update post. Please try again.", {
         position: "top-right",
         autoClose: 5000,
@@ -67,13 +70,12 @@ const EditPost = ({ postData }: { postData: any }) => {
         progress: undefined,
         theme: "light",
         transition: Bounce,
-        });
+      });
     }
-  },[isError]);
+  }, [isError]);
 
   const handleSubmit = async () => {
-      await onEdit({ id: postData.id, data: formData });
-   
+    await onEdit({ id: postData.id, data: formData });
   };
 
   return (
@@ -125,8 +127,6 @@ const EditPost = ({ postData }: { postData: any }) => {
           </div>
         </div>
       </div>
-
-    
     </Modal>
   );
 };

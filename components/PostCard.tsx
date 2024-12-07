@@ -3,7 +3,7 @@ import { useGetUserDataQuery } from '@/lib/redux/features/api/usersApi';
 import { motion } from 'framer-motion'
 import Image from 'next/image';
 import React from 'react'
-import { FaEdit, FaTrash, FaUserCircle } from 'react-icons/fa' // Importing icons for edit, delete, and default user profile
+import { FaUserCircle } from 'react-icons/fa' // Importing icons for edit, delete, and default user profile
 import EditPost from './EditPost';
 import DeletePost from './DeletePost';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
@@ -30,15 +30,16 @@ const PostCard = ({ cardData }: { cardData: CardProps }) => {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
-      className=" cursor-pointer  w-full border border-gray-300 dark:border-gray-800 bg-white dark:bg-gray-800/20  rounded-lg overflow-hidden group"
+     
     >
+      <div  className=" cursor-pointer  w-full border border-gray-300 dark:border-gray-800 bg-white dark:bg-gray-800/20  rounded-lg overflow-hidden group">
       <div className="p-6">
         <div className="flex items-center space-x-3 mb-4">
           {user?.userImage ? (
             <Image
             height={50}
             width={50}
-              src={staticUserData.userImage}
+              src=""
               alt="User Avatar"
               className="w-10 h-10 rounded-full object-cover"
             />
@@ -86,6 +87,7 @@ const PostCard = ({ cardData }: { cardData: CardProps }) => {
           </div>
           </div>
         </div>
+      </div>
       </div>
     </motion.div>
   )

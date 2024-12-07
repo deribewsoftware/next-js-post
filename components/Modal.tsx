@@ -54,11 +54,12 @@ const Modal: React.FC<ModalProps> = ({contentClass, className, disabled, childre
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -50 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className={`relative bg-white dark:bg-gray-800 rounded-lg w-3xl  shadow-xl transform transition-all sm:my-8 
+              
+            >
+              <div className={`relative bg-white dark:bg-gray-800 rounded-lg w-3xl  shadow-xl transform transition-all sm:my-8 
                  ${contentClass}
                  sm:max-w-2xl w-full
-             `}
-            >
+             `}>
               <div className={`p-6 rounded-lg bg-white dark:bg-gray-800 `}>
                 <div className="sm:flex sm:items-start"> 
                   <div className="text-left w-full">
@@ -97,6 +98,7 @@ const Modal: React.FC<ModalProps> = ({contentClass, className, disabled, childre
                     </div>
                   </div>
                 </div>
+              </div>
               </div>
             </motion.div>
           </div>

@@ -19,22 +19,21 @@ const LoadingComponent: React.FC = () => {
 
   return (
       <motion.div
-        className="flex flex-col items-center"
+        
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
+        <div className="flex flex-col items-center">
         <FaSpinner className="text-6xl text-emerald-500 animate-spin mb-6" />
-        <motion.h1
+        <h1
           key={currentWord}
           className="text-2xl font-bold text-emerald-500"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.5 }}
+        
         >
           {words[currentWord]}
-        </motion.h1>
+        </h1>
+        </div>
       </motion.div>
   
   );

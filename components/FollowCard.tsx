@@ -1,23 +1,23 @@
-"use client";
-
 import { FaUser } from "react-icons/fa";
 import React from "react";
 import Image from "next/image";
 
-// FollowCard Component with Skeleton Loader
-const FollowCard = ({
-  toFollow,
-  image,
-  name,
-  location,
-  loading,
-}: {
-  image: any;
+// Define the props interface for better type safety
+interface FollowCardProps {
+  image: string | undefined;  // Image is either a string (URL) or undefined
   name: string;
   location: string;
   toFollow?: boolean;
   loading?: boolean;
-}) => {
+}
+
+const FollowCard = ({
+  image,
+  name,
+  location,
+  toFollow,
+  loading,
+}: FollowCardProps) => {
   if (loading) {
     return (
       <div className="flex cursor-pointer hover:bg-white/50 hover:dark:bg-white/10 items-center p-4 rounded-lg border border-gray-300 dark:border-gray-800 bg-white dark:bg-gray-800/20 duration-300 animate-pulse">
@@ -39,8 +39,8 @@ const FollowCard = ({
       <div className="flex-shrink-0 w-12 h-12 overflow-hidden rounded-full border-2 border-gray-300 dark:border-gray-800">
         {image ? (
           <Image
-          height={50}
-          width={50}
+            height={50}
+            width={50}
             src={image}
             alt={name}
             className="w-full h-full object-cover"

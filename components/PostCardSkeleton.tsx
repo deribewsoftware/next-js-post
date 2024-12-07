@@ -8,8 +8,9 @@ const PostCardSkeleton = () => {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
-      className="w-full border border-gray-300 dark:border-gray-800 bg-white dark:bg-gray-800/20 rounded-lg overflow-hidden"
+      
     >
+      <div className="w-full border border-gray-300 dark:border-gray-800 bg-white dark:bg-gray-800/20 rounded-lg overflow-hidden">
       <div className="p-6 space-y-4">
         {/* User Avatar and Info */}
         <div className="flex items-center space-x-3">
@@ -34,6 +35,7 @@ const PostCardSkeleton = () => {
             <div className="w-6 h-6 bg-gray-300 dark:bg-gray-600 rounded-full animate-pulse"></div>
           </div>
         </div>
+      </div>
       </div>
     </motion.div>
   );
